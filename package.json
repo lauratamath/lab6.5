@@ -1,0 +1,35 @@
+{
+  "name": "lab6.5",
+  "version": "1.0.0",
+  "description": "ver que el laberinto no tenga errores",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint laberinto.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lauratamath/lab6.5.git"
+  },
+  "author": "Laura Tamath",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lauratamath/lab6.5/issues"
+  },
+  "homepage": "https://github.com/lauratamath/lab6.5#readme",
+  "dependencies": {
+    "eslint-plugin-html": "^6.1.2"
+  },
+  "eslintConfig": {
+    "globals": {
+      "react": true
+    }
+  },
+  "devDependencies": {
+    "eslint": "^7.22.0",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react-hooks": "^4.2.0"
+  }
+}

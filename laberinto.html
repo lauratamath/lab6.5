@@ -15,7 +15,7 @@
                 width: '208px',
                 height: '208px',
                 backgroundImage: 'url("arbu.png")',
-                backgroundColor: '#4B9145'
+                backgroundColor: '#4B9145',
               }
               return <div style={style} />
             }
@@ -24,17 +24,17 @@
               const style = {
                 width: '208px',
                 height: '208px',
-                backgroundImage: 'url("win.png")'
+                backgroundImage: 'url("win.png")',
               }
               return <div style={style} />
             }
 
-            const Player = ({sprite}) => {
+            const Player = ({ sprite }) => {
               const style = {
                 width: '208px',
                 height: '208px',
                 backgroundImage: sprite,
-                backgroundColor: '#645250'
+                backgroundColor: '#645250',
               }
               return <div style={style} />
             }
@@ -43,22 +43,22 @@
               const style = {
                 width: '208px',
                 height: '208px',
-                backgroundImage: 'url("empty.png")'
+                backgroundImage: 'url("empty.png")',
               }
               return <div style={style} />
             } 
-            //Para mostrar cúantos movimientos realizó
-            const Final = ({movimientos}) => {
+
+            const Final = ({ movimientos }) => {
               const center = {
-                textAlign: 'center'
+                textAlign: 'center',
               }
 
-              return(
+              return (
                 <div style={center}>
-                	<style>{"body { background-color: #4B9145; }"}</style>s
+                  <style>{"body { background-color: #4B9145 } "}</style>
                   <h1> YOU DID IT!</h1>
                   <h2> Para llegar a la meta, hiciste</h2>
-                  <h3> {movimientos} movimientos </h3>
+                  <h3> {movimientos} movimientos</h3>
                 </div>
               )
             }
@@ -68,114 +68,102 @@
 
               const rowStyles = {
                 display: 'grid',
-                gridAutoFlow: 'column'
+                gridAutoFlow: 'column',
               }
             
-              //Moviemientos
               const [playerX, setPlayerX] = React.useState(1)
               const [playerY, setPlayerY] = React.useState(1)
 
-              //Sprites
               const [sprite, setSprite] = React.useState('url(down.png)')
 
-              //Pasos
               const [movimientos, setMovimientos] = React.useState(0)
 
-              //Pantalla
               const [screen, setScreen] = React.useState(1)
 
-              //Tamaño
-              const [mazeSize, setMazeSize] = React.useState(10)
-
               const handleKeyDown = (event) => {
-              //Movimiento hacia derecha
-                if(event.key === 'd') {
+                if (event.key === 'd') {
                   setSprite(() => {
                     return 'url(right.png)'
                   })
-                  if(mazeData[playerY][playerX+1] === ' '){
+                  if (mazeData[playerY][playerX + 1] === ' ') {
                     setPlayerX((oldValue) => {
                       setMovimientos((oldValue) => {
-                        return oldValue +1
+                        return oldValue + 1
                       })
                       mazeData[playerY][playerX] = ' '
-                      mazeData[playerY][playerX+1] = 'p'
-                      return oldValue+1
+                      mazeData[playerY][playerX + 1] = 'p'
+                      return oldValue + 1
                     })
                   }
-                  if(mazeData[playerY][playerX+1] === 'g'){
+                  if (mazeData[playerY][playerX + 1] === 'g') {
                     setScreen(() => {
                       return 0
                     })
                   }
                 }
-                //Movimiento hacia la izquierda
-                if(event.key === 'a') {
+                if (event.key === 'a') {
                   setSprite(() => {
                     return 'url(left.png)'
                   })
-                  if(mazeData[playerY][playerX-1] === ' '){
+                  if (mazeData[playerY][playerX - 1] === ' ') {
                     setPlayerX((oldValue) => {
                       setMovimientos((oldValue) => {
-                        return oldValue +1
+                        return oldValue + 1
                       })
                       mazeData[playerY][playerX] = ' '
-                      mazeData[playerY][playerX-1] = 'p'
-                      return oldValue-1
+                      mazeData[playerY][playerX - 1] = 'p'
+                      return oldValue - 1
                     })
                   }
-                  if(mazeData[playerY][playerX-1] === 'g'){
+                  if (mazeData[playerY][playerX - 1] === 'g') {
                     setScreen(() => {
                       return 0
                     })
                   }
                 }
-                //Movimiento hacia arriba
-                if(event.key === 'w') {
+                if (event.key === 'w') {
                   setSprite(() => {
                     return 'url(up.png)'
                   })
-                  if(mazeData[playerY-1][playerX] === ' '){
+                  if (mazeData[playerY - 1][playerX] === ' ') {
                     setPlayerY((oldValue) => {
                       setMovimientos((oldValue) => {
-                        return oldValue +1
+                        return oldValue + 1
                       })
                       mazeData[playerY][playerX] = ' '
-                      mazeData[playerY-1][playerX] = 'p'
-                      return oldValue-1
+                      mazeData[playerY - 1][playerX] = 'p'
+                      return oldValue - 1
                     })
                   }
-                  if(mazeData[playerY-1][playerX] === 'g'){
+                  if (mazeData[playerY - 1][playerX] === 'g') {
                     setScreen(() => {
                       return 0
                     })
                   }
                 }
-                //Movimiento hacia abajo
-                if(event.key === 's') {
+                if (event.key === 's') {
                   setSprite(() => {
                     return 'url(down.png)'
                   })
-                  if(mazeData[playerY+1][playerX] === ' '){
+                  if (mazeData[playerY + 1][playerX] === ' ') {
                     setPlayerY((oldValue) => {
                       setMovimientos((oldValue) => {
-                        return oldValue +1
+                        return oldValue + 1
                       })
                       mazeData[playerY][playerX] = ' '
-                      mazeData[playerY+1][playerX] = 'p'
-                      return oldValue+1
+                      mazeData[playerY + 1][playerX] = 'p'
+                      return oldValue + 1
                     })
                   }
-                  if(mazeData[playerY+1][playerX] === 'g'){
+                  if (mazeData[playerY + 1][playerX] === 'g') {
                     setScreen(() => {
                       return 0
                     })
                   }
                 }
               }
-
               
-              let mazeFetch = 'http://ubeje.xyz:3001/?type=json&w=10&h=10'
+              const mazeFetch = 'http://ubeje.xyz:3001/?type=json&w=10&h=10'
                 React.useEffect(() => {
                   fetch(mazeFetch)
                     .then(r => r.json())
@@ -183,14 +171,14 @@
                 }, [])
 
                 console.log('render', mazeData)
-                if(screen === 1){
+                if (screen === 1) {
                   return (
                     <div tabIndex="1" onKeyDown={handleKeyDown}>
-                      {mazeData.map((row, rowIndex) => {
+                      {mazeData.map((row) => {
                         return (
                           <div style={rowStyles}>
-                            {row.map((cell, colIndex) => {
-                              switch(cell) {
+                            {row.map((cell) => {
+                              switch (cell) {
                                 case 'p':
                                   return <Player sprite={sprite} />
                                 case 'g':
@@ -208,17 +196,15 @@
                   )
                 }
                 
-              
-              else{
-                return(
+                return (
                   <Final movimientos={movimientos} />
                 )
-              }
             }
+
             ReactDOM.render(
                 <Maze />,
-                htmlRoot
-            ) 
+                htmlRoot,
+                ) 
         </script>
     </body>
 </html>
